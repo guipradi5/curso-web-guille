@@ -19,7 +19,7 @@ jobs:
           key: ${{ github.ref }}
           path: .cache
       - run: pip install mkdocs-material
-      - run: mkdocs deploy
+      - run: mkdocs build
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
