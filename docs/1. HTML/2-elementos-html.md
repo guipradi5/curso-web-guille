@@ -504,7 +504,7 @@ Otra cosa que puedes hacer es agrupar options usando el elemento `<optgroup>` y 
 
 !!! Interpretado Example
     <div class="html-doc">
-      <select name="comida" id="comida">
+      <select name="comida" id="comida" onchange="pizzaConPina()">
         <option value="" disabled selected>Selecciona una comida</option>
         <optgroup label="Hamburguesas"><!--(1)!-->
           <option value="queso">Hamburguesa con queso</option>
@@ -519,6 +519,18 @@ Otra cosa que puedes hacer es agrupar options usando el elemento `<optgroup>` y 
           <option value="pizzavegana">Pizza Vegana</option>
         </optgroup>
       </select>
+      <script>
+        function pizzaConPina(){
+          if(document.getElementById("comida").value === "pina"){
+            const mensaje = "¿Pero qué haces escogiendo Pizza con Piña?\nMonstruo\n\nFuera de mi web."
+            window.alert(mensaje)
+            window.open(
+              'https://www.elespanol.com/social/20160803/144986027_0.html',
+              '_blank'
+            );
+          }
+        }
+      </script>
     </div>
 
 
