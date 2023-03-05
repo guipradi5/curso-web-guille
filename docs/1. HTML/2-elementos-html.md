@@ -415,6 +415,113 @@ También está la opción de poner tanto el texto como el input DENTRO del label
       <label>Mayor de edad: <input type="checkbox"></label>
     </div>
 
+### select
+
+El elemento [select](https://www.w3schools.com/tags/tag_select.asp) es otro tipo de elemento con el que el usuario puede interactuar, permite crear un selector. Un selector es una lista desplegable que permite seleccionar un elemento de dicha lista.
+
+Este elemento se compagina con un elemento exclusivo llamado `<option>` que representa cada opción de la lista y va dentro del select. Cada option ha de llevar un atributo "value" que será el valor único de cada opción.
+
+Una vez se selecciona una opcion, el atributo "value" interno del select se vuelve el value de la opcion seleccionada.
+
+``` html title="Código html"
+<select name="hamburguesas" id="hamburguesas">
+  <option value="">Selecciona un tipo de hamburguesa</option>
+  <option value="queso">Hamburguesa con queso</option>
+  <option value="jardinera">Hamburguesa Jardinera</option>
+  <option value="huevo">Hamburguesa con huevo</option>
+  <option value="vegana">Hamburguesa Vegana</option>
+</select>
+```
+!!! Interpretado Example
+    <div class="html-doc">
+      <select name="hamburguesas" id="hamburguesas" onchange="update()">
+        <option value="">Selecciona un tipo de hamburguesa</option>
+        <option value="queso">Hamburguesa con queso</option>
+        <option value="jardinera">Hamburguesa Jardinera</option>
+        <option value="huevo">Hamburguesa con huevo</option>
+        <option value="vegana">Hamburguesa Vegana</option>
+      </select>
+      <span style="margin-left:20px">value del select: <span id="value"></span></span>
+      <script>
+        function update(){
+          document.getElementById("value").innerHTML = document.getElementById("hamburguesas").value
+        }
+      </script>
+    </div>
+
+
+Tambien una cosa que podemos hacer es agregar un atributo "disabled" a una opción para que esta no sea seleccionable. Incluso podemos añadir un atributo "selected" a una opción para que
+el select se cargue preseleccionado con esa option:
+
+
+``` html title="Código html"
+<select name="hamburguesas" id="hamburguesas">
+  <option value="" disabled>Selecciona un tipo de hamburguesa</option><!--(1)!-->
+  <option value="queso">Hamburguesa con queso</option>
+  <option value="jardinera">Hamburguesa Jardinera</option>
+  <option value="huevo" selected>Hamburguesa con huevo</option><!--(2)!-->
+  <option value="vegana">Hamburguesa Vegana</option>
+</select>
+```
+
+1. Aplicamos el atributo "disabled" para no poder seleccionarlo
+2. Aplicamos el atributo "selected" para que el select aparezca con esa opción pre-seleccionada
+
+!!! Interpretado Example
+    <div class="html-doc">
+      <select name="hamburguesas" id="hamburguesas">
+        <option value="" disabled>Selecciona un tipo de hamburguesa</option>
+        <option value="queso">Hamburguesa con queso</option>
+        <option value="jardinera">Hamburguesa Jardinera</option>
+        <option value="huevo" selected>Hamburguesa con huevo</option>
+        <option value="vegana">Hamburguesa Vegana</option>
+      </select>
+    </div>
+
+
+Otra cosa que puedes hacer es agrupar options usando el elemento `<optgroup>` y añadiendole un atributo __label__ para darle un nombre a ese grupo. Se añadirá el titulo que separará los grupos de options. 
+
+
+``` html title="Código html"
+<select name="comida" id="comida">
+  <option value="" disabled selected>Selecciona una comida</option>
+  <optgroup label="Hamburguesas"><!--(1)!-->
+    <option value="queso">Hamburguesa con queso</option>
+    <option value="jardinera">Hamburguesa Jardinera</option>
+    <option value="huevo" selected>Hamburguesa con huevo</option>
+    <option value="hamburvegana">Hamburguesa Vegana</option>
+  </optgroup>
+  <optgroup label="Pizza"><!--(1)!-->
+    <option value="pina">Pizza con Piña</option>
+    <option value="margarita">Pizza Margarita</option>
+    <option value="carbonara">Pizza Carbonara</option>
+    <option value="pizzavegana">Pizza Vegana</option>
+  </optgroup>
+</select>
+```
+
+1. Con el elemento <optgroup\> Hacemos agrupaciones y han de llevar el atributo __label__
+
+!!! Interpretado Example
+    <div class="html-doc">
+      <select name="comida" id="comida">
+        <option value="" disabled selected>Selecciona una comida</option>
+        <optgroup label="Hamburguesas"><!--(1)!-->
+          <option value="queso">Hamburguesa con queso</option>
+          <option value="jardinera">Hamburguesa Jardinera</option>
+          <option value="huevo">Hamburguesa con huevo</option>
+          <option value="hamburvegana">Hamburguesa Vegana</option>
+        </optgroup>
+        <optgroup label="Pizza"><!--(1)!-->
+          <option value="pina">Pizza con Piña</option>
+          <option value="margarita">Pizza Margarita</option>
+          <option value="carbonara">Pizza Carbonara</option>
+          <option value="pizzavegana">Pizza Vegana</option>
+        </optgroup>
+      </select>
+    </div>
+
+
 ## Head
 
 El [<head\>](https://www.w3schools.com/TAGS/tag_head.asp) en cambio es una sección que solo lee el navegador y otros servicios. Mencionaré los elementos más importantes que incluir en un `<head>`
@@ -451,9 +558,17 @@ Crea una página HTML desde 0 usando la plantilla de la página "¿Qué es un na
       <img src="https://www.pequerecetas.com/wp-content/uploads/2020/10/tacos-mexicanos-660x476.jpg.webp" />
       </p>
       <p>
-      <i>Si quiere hacer una reserva, ponga su nombre y número le llamaremos lo antes posible!</i><br/>
+      <i>Si quiere hacer una reserva, ponga su nombre, número y preferencia y le llamaremos lo antes posible!</i><br/>
       <input type="text" placeholder="Ponga su nombre" /><br/>
       <input type="tlf" placeholder="Telefono" /><br/>
+      <select id="taco">
+        <option value="" disabled selected>Seleccione un taco</option>
+        <option value="carnitas" >Carnitas</option>
+        <option value="pollo" >Pollo</option>
+        <option value="frijoles" >Frijoles</option>
+        <option value="elote" disabled >Elote (No disponible)</option>
+      </select>
+      <br/>
       <button>Enviar</button>
       </p>
     </div>
