@@ -8,5 +8,5 @@ La idea de este recurso es dar las explicaciones más vitales y necesarias para 
 
 A la izquierda tienes un Índice con todos los temas disponibles!
 
-Empezaremos sabiendo qué es y como funciona un navegador de forma muy sencilla y como empezar tu primer proyectito web e iremos subiendo poco a poco sabiendo más y más cosas y trucos para hacer lo que tengas en mente. Adelante! fgd 
+Empezaremos sabiendo qué es y como funciona un navegador de forma muy sencilla y como empezar tu primer proyectito web e iremos subiendo poco a poco sabiendo más y más cosas y trucos para hacer lo que tengas en mente. Adelante!
 
