@@ -18,3 +18,6 @@ Una vez instalado, ve a la carpeta en la que quieras montar el proyecto y con el
 
     pip install -e mkdocs-material
 
+#Acceder a la web
+
+La web esta hosteada en firebase en https://curso-web-guille.web.app/
